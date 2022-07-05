@@ -1,5 +1,9 @@
 # Adicionar alias no terminal
 
+Adicionar a variavel de ambiente APP_SERVICE no seu .env com o nome do serviço que roda o php. ex: 
+
+> APP_SERVICE=servico_php-fpm_1
+
 abra o terminal e digite:
 
 
