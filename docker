@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ -f /home/renato/scripts/commands/docker_shortcut ]; then
+    /home/renato/scripts/commands/docker_shortcut "$@"
+else
+    echo "O script docker não foi encontrado!"
+fi

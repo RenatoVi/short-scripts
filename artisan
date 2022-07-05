@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+#if [ -f ./scripts/artisan_shortcut ]; then
+#    ./scripts/artisan_shortcut "$@"
+#else
+#    echo "O script artisan não foi encontrado!"
+#fi
+
+if [ -f /home/renato/scripts/commands/artisan_shortcut ]; then
+    /home/renato/scripts/commands/artisan_shortcut "$@"
+else
+    echo "O script artisan não foi encontrado!"
+fi
