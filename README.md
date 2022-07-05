@@ -31,4 +31,4 @@ clone esse repositorio no diretorio /home/renato/ e execute o comando:
 
 Exemplo de comando php artisan:
 
-> art {seu_parametro}
+> art {seu_parametro} (art optimize)
