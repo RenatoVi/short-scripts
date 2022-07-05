@@ -28,3 +28,7 @@ clone esse repositorio no diretorio /home/renato/ e execute o comando:
 > mv /home/renato/short-scripts /home/renato/scripts
 >
 > chmod u+x /home/renato/scripts/ -R
+
+Exemplo de comando:
+
+> art {seu_parametro}
