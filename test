@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ -f /home/renato/scripts/commands/test_shortcut ]; then
+    /home/renato/scripts/commands/test_shortcut "$@"
+else
+    echo "O script test não foi encontrado!"
+fi

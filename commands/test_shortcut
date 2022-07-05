@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+UNAMEOUT="$(uname -s)"
+
+WHITE='\033[1;37m'
+NC='\033[0m'
+
+# Verify operating system is supported...
+case "${UNAMEOUT}" in
+    Linux*)             MACHINE=linux;;
+    Darwin*)            MACHINE=mac;;
+    *)                  MACHINE="UNKNOWN"
+esac
+
+if [ "$MACHINE" == "UNKNOWN" ]; then
+    echo "Unsupported operating system [$(uname -s)]. Laravel Sail supports macOS, Linux, and Windows (WSL2)." >&2
+
+    exit 1
+fi
+
+# Define environment variables...
+export APP_SERVICE=${APP_SERVICE}
+
+if [ "$MACHINE" == "linux" ]; then
+    export SEDCMD="sed -i"
+elif [ "$MACHINE" == "mac" ]; then
+    export SEDCMD="sed -i .bak"
+fi
+
+# Ensure that Docker is running...
+if ! docker info > /dev/null 2>&1; then
+    echo -e "${WHITE}Docker is not running.${NC}" >&2
+    exit 1
+fi
+
+
+# Source the ".env" file so Laravel's environment variables are available...
+if [ -f ./.env ]; then
+    source ./.env
+fi
+
+if [ "$1" == "f" ]; then
+    shift 1
+        docker exec -t \
+        "$APP_SERVICE" \
+        php artisan test --filter="$@"
+else
+      docker exec -t \
+      "$APP_SERVICE" \
+      php artisan test
+fi
