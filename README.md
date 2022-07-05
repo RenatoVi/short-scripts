@@ -29,6 +29,6 @@ clone esse repositorio no diretorio /home/renato/ e execute o comando:
 >
 > chmod u+x /home/renato/scripts/ -R
 
-Exemplo de comando:
+Exemplo de comando php artisan:
 
 > art {seu_parametro}
