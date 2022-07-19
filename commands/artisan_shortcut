@@ -47,6 +47,21 @@ elif [ "$1" == "m" ]; then
         docker exec -t \
         "$APP_SERVICE" \
         php artisan make:"$@"
+elif [ "$1" == "mi" ]; then
+    shift 1
+        docker exec -t \
+        "$APP_SERVICE" \
+        php artisan migrate
+elif [ "$1" == "mir" ]; then
+    shift 1
+        docker exec -t \
+        "$APP_SERVICE" \
+        php artisan migrate:rollback
+elif [ "$1" == "mirs" ]; then
+    shift 1
+        docker exec -t \
+        "$APP_SERVICE" \
+        php artisan migrate:rollback --step="$@"
 elif [ "$1" == "opt" ]; then
     shift 1
         docker exec -t \
