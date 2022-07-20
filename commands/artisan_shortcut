@@ -57,6 +57,18 @@ elif [ "$1" == "mir" ]; then
         docker exec -t \
         "$APP_SERVICE" \
         php artisan migrate:rollback
+elif [ "$1" == "rl" ]; then
+    shift 1
+        docker exec -t \
+        "$APP_SERVICE" \
+        php artisan route:list
+
+elif [ "$1" == "rlg" ]; then
+    shift 1
+        docker exec -t \
+        "$APP_SERVICE" \
+        php artisan route:list | grep "$@"
+
 elif [ "$1" == "mirs" ]; then
     shift 1
         docker exec -t \
